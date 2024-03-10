@@ -14,8 +14,8 @@ app.get("/", (c) => {
 });
 
 app.get("/preview", (c) => {
-    console.log(env<Env>(c).ENVIRONMENT);
-    return c.render("This is a preview branch");
+    const { ENVIRONMENT } = env<Env>(c)
+    return c.render(`This is a preview branch: ${ENVIRONMENT}`);
 });
 
 app.get("/streamText", (c) => {
